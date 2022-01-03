@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CatalogConfig(AppConfig):
-    name = 'catalog'
+class CatalogappConfig(AppConfig):
+    name = 'catalogapp'
     verbose_name = 'Каталог продукции (номенклатура)'

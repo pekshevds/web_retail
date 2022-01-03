@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #'catalog',
-    'catalog.apps.CatalogConfig',
+    'catalogapp.apps.CatalogappConfig',
     'rest_framework',
     'corsheaders',
 ]

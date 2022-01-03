@@ -18,13 +18,13 @@ def index(request):
 
 class APIBrand(APIView):
 
-    def get(self, reques, id=''):        
+    def get(self, reques, id=''):
         if id == '':
             brands = Brand.objects.all()
             serialaizer = BrandSerializer(brands, many=True)
         else:
             try:
-                brands = Brand.objects.get(pk=id)
+                brands = Brand.objects.get(id=id)
             except:
                 return Response(status=status.HTTP_400_BAD_REQUEST) 
 
@@ -33,14 +33,13 @@ class APIBrand(APIView):
         return Response(serialaizer.data)
 
     def post(self, request):
-        
-        print(request.data['id'])
+                
         try:
             brand = Brand.objects.get(id=request.data['id'])
         except:
             brand = None
-        print(brand)
-        if brand:
+
+        if brand:#PUT
             serialaizer = BrandSerializer(brand, data=request.data)
         else:
             serialaizer = BrandSerializer(data=request.data)

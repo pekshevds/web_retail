@@ -6,7 +6,7 @@ from django.db import models
 
 class Brand(models.Model):
     """Марка (бренд)"""
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     name = models.CharField(verbose_name='Наименование', max_length=100, blank=False, null=False)
     code = models.CharField(verbose_name='Код', max_length=9, blank=True, null=True, default='')
 
@@ -19,7 +19,7 @@ class Brand(models.Model):
 
 class Manufacturer(models.Model):
     """Производитель"""
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     name = models.CharField(verbose_name='Наименование', max_length=100, blank=False, null=False)
     code = models.CharField(verbose_name='Код', max_length=9, blank=True, null=True, default='')
 
@@ -32,7 +32,7 @@ class Manufacturer(models.Model):
 
 class Country(models.Model):
     """Страна ОКСМ"""
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     name = models.CharField(verbose_name='Наименование', max_length=60, blank=False, null=False)
     code = models.CharField(verbose_name='Код', max_length=3, blank=True, null=True, default='')
 
@@ -45,7 +45,7 @@ class Country(models.Model):
 
 class Unit(models.Model):
     """Единица измерения ОКЕИ"""
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     name = models.CharField(verbose_name='Наименование', max_length=25, blank=False, null=False)
     code = models.CharField(verbose_name='Код', max_length=4, blank=True, null=True, default='')
 
@@ -58,7 +58,7 @@ class Unit(models.Model):
 
 class Category(models.Model):
     """Категория (Вид номенклатуры)"""
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     name = models.CharField(verbose_name='Наименование', max_length=50, blank=False, null=False)
 
     def __str__(self):
@@ -70,7 +70,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     """Продукт-товар (Номенклатура с типом Товар)"""
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     name = models.CharField(verbose_name='Наименование', max_length=100, blank=False, null=False)
     code = models.CharField(verbose_name='Код', max_length=11, blank=True, null=True, default='')
     art = models.CharField(verbose_name='Артикул', max_length=25, blank=True, null=True, default='')
