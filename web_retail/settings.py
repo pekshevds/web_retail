@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #'catalog',
-    'catalogapp.apps.CatalogappConfig',
     'rest_framework',
     'corsheaders',
+
+    'catalogapp.apps.CatalogappConfig',
+    'baseapp.apps.BaseappConfig',
 ]
 
 MIDDLEWARE = [
@@ -122,11 +124,14 @@ USE_L10N = True
 USE_TZ = True
 
 
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_URLS_REGRX = r'^/api/.*$'
+#CORS_ORIGIN_ALLOW_ALL = True
+#CORS_URLS_REGRX = r'^/api/.*$'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = os.path.join(BASE_DIR, 'static/')
-MEDIA_URL = os.path.join(BASE_DIR, 'media/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static') # пустая папка, сюда будет собирать статику collectstatic
+STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # пустая папка, сюда будет собирать статику collectstatic
+MEDIA_URL = '/media/'

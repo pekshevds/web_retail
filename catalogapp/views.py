@@ -14,8 +14,11 @@ from .serializers import BrandSerializer, ManufacturerSerializer, CountrySeriali
 
 # Create your views here.
 def index(request):
-
-    return render(request, 'catalog/index.html')
+    items = Product.objects.all()[:1000]
+    return render(request, 'catalogapp/index.html', context={
+        'items': items,
+        }
+        )
 
 
 class APIModel(APIView):
