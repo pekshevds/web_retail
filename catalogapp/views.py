@@ -56,6 +56,19 @@ class APIModel(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+    def delete(self, request):
+
+        result = True    
+        try:
+            self.model.objects.all().delete()
+        except:
+            result = False
+        
+        if result:            
+            return Response(status=status.HTTP_200_OK)
+
+        return Response(exception=True, status=status.HTTP_400_BAD_REQUEST)
 
 class APIBrand(APIModel):
     model = Brand

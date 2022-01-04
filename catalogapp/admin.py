@@ -6,11 +6,11 @@ from .models import Product
 
 class AdminProduct(admin.ModelAdmin):
 
-    list_display = ('name',)    
+    list_display = ('name', 'art', 'country', 'manufacturer', 'unit', 'category',)
     list_display_links = ('name',)
-    search_fields = ('name',)
-    list_filter = ('brand', 'country','manufacturer', 'unit', 'category',)
-    
+    search_fields = ('name', 'art',)
+    list_filter = ('brand', 'country', 'manufacturer', 'unit', 'category',)
+    fields = ('code', 'name', 'art', 'country', 'manufacturer', 'unit', 'category', 'descriptions',)
     class Meta:
         model = Product
     

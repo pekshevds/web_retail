@@ -16,6 +16,7 @@ class Brand(models.Model):
     class Meta:
         verbose_name = 'Торговая марка (Бренд)'
         verbose_name_plural = 'Торговые марки (Бренды)'
+        ordering = ['name']
 
 class Manufacturer(models.Model):
     """Производитель"""
@@ -29,6 +30,7 @@ class Manufacturer(models.Model):
     class Meta:
         verbose_name = 'Производитель'
         verbose_name_plural = 'Производители'
+        ordering = ['name']
 
 class Country(models.Model):
     """Страна ОКСМ"""
@@ -42,6 +44,7 @@ class Country(models.Model):
     class Meta:
         verbose_name = 'Страна'
         verbose_name_plural = 'Страны мира (по ОКСМ)'
+        ordering = ['name']
 
 class Unit(models.Model):
     """Единица измерения ОКЕИ"""
@@ -55,6 +58,7 @@ class Unit(models.Model):
     class Meta:
         verbose_name = 'Единица измерения'
         verbose_name_plural = 'Единицы (по ОКЕИ)'
+        ordering = ['name']
 
 class Category(models.Model):
     """Категория (Вид номенклатуры)"""
@@ -67,6 +71,7 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Категория (вид номенклатуры)'
         verbose_name_plural = 'Категории (виды номенклатуры)'
+        ordering = ['name']
 
 class Product(models.Model):
     """Продукт-товар (Номенклатура с типом Товар)"""
@@ -89,3 +94,4 @@ class Product(models.Model):
     class Meta:
         verbose_name = 'Продукт'
         verbose_name_plural = 'Продукты'
+        ordering = ['name']
