@@ -1,9 +1,46 @@
 {% extends 'baseapp/base.html' %}
 
-{% block titile %}
+{% load static %}
+
+{% block title %}
     hello world
 {% endblock %}
 
 {% block body %}
-    <h1>my first page</h1>
+
+
+
+
+<div class="container">
+
+  
+
+
+
+    <div class="row">
+
+        <div class="col-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{% static 'image.jpeg' %}" alt="Card image cap">                
+                <div class="card-body">
+                  <h5 class="card-title">{{ item.name }}</h5>
+                  <p class="card-text">{{ item.descriptions }}</p>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{ item.unit }}</li>
+                  <li class="list-group-item">{{ item.country }}</li>
+                  <li class="list-group-item">{{ item.manufacturer }}</li>
+                </ul>
+                <div class="card-body">
+                  <a href="#" class="card-link">Ссылка карты</a>
+                  <a href="#" class="card-link">Другая ссылка</a>
+                </div>
+              </div>
+        </div>        
+    </div>
+
+    
+    
+  </div>
+
 {% endblock %}

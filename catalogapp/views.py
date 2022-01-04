@@ -1,4 +1,5 @@
 from typing import List
+from django.core import paginator
 from django.db.models.base import Model
 from django.shortcuts import render
 
@@ -12,13 +13,35 @@ from django.db import models
 from .models import Brand, Manufacturer, Country, Unit, Category, Product
 from .serializers import BrandSerializer, ManufacturerSerializer, CountrySerializer, UnitSerializer, CategorySerializer, ProductSerializer
 
+from django.core.paginator import Paginator
+
 # Create your views here.
-def index(request):
-    items = Product.objects.all()[:1000]
-    return render(request, 'catalogapp/index.html', context={
-        'items': items,
+def show_list(request):
+    items = Product.objects.all()[:100]
+
+    paginator = Paginator(items, 24)
+
+    page_num = 1
+    if 'page' in request.GET:
+        page_num = request.GET['page']
+    
+    page = paginator.get_page(page_num)
+    
+    context = {
+        'page': page,
+        'items': page.object_list,
         }
-        )
+
+    return render(request, 'catalogapp/list.html', context=context)
+
+def show_item(request, pk):
+    item = Product.objects.get(pk=pk)
+
+    context = {
+        'item': item,
+        }
+
+    return render(request, 'catalogapp/item.html', context=context)
 
 
 class APIModel(APIView):
