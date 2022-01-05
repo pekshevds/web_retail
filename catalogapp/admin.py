@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.db.models import fields
+
 
 from .models import Brand, Country, Manufacturer, Unit, Category
 from .models import Product
