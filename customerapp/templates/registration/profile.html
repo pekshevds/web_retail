@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}
+    
+    {% if object %}
+        {{ object.name }}
+    {% else %}
+        Анонимный пользователь
+    
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+    {% if object %}
+        {{ object.name }}
+    {% else %}
+        Анонимный пользователь
+
+    {% endif %}
+    
+{% endblock %}
