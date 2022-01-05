@@ -124,6 +124,7 @@ USE_L10N = True
 
 USE_TZ = True
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #CORS_ORIGIN_ALLOW_ALL = True
 #CORS_URLS_REGRX = r'^/api/.*$'

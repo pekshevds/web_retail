@@ -1,4 +1,3 @@
-from django.utils.functional import SimpleLazyObject
 from django.shortcuts import render
 from django.contrib.auth import views
 from django.views.generic.detail import DetailView
@@ -34,3 +33,15 @@ class LoginView(views.LoginView):
 class LogoutView(views.LogoutView):
     template_name = 'registration/logged_out.html'
     next_page = 'login'
+
+class PasswordResetCompleteView(views.PasswordResetCompleteView):
+    template_name = 'registration/password_reset_complete.html'
+
+class PasswordResetConfirmView(views.PasswordResetConfirmView):
+    template_name = 'registration/password_reset_confirm.html'
+
+class PasswordResetDoneView(views.PasswordResetDoneView):
+    template_name = 'registration/password_reset_done.html'
+
+
+    
