@@ -1,6 +1,4 @@
 from typing import List
-from django.core import paginator
-from django.db.models.base import Model
 from django.shortcuts import render
 
 from rest_framework.response import Response
@@ -15,7 +13,34 @@ from .serializers import BrandSerializer, ManufacturerSerializer, CountrySeriali
 
 from django.core.paginator import Paginator
 
+from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
+
+
 # Create your views here.
+
+
+#Class-based views
+class ProductListView(ListView):
+    template_name = 'catalogapp/list.html'
+    model = Product
+    paginate_by = 24
+
+    def get_queryset(self):
+        return self.model.objects.all()[:100]
+    
+    def get_context_data(self, **kwargs):
+
+        context = super().get_context_data(**kwargs)
+        return context
+
+class ProductDetailView(DetailView):
+    template_name = 'catalogapp/item.html'
+    model = Product
+
+
+
+#Function-based views
 def show_list(request):
     items = Product.objects.all()[:100]
 
@@ -28,8 +53,7 @@ def show_list(request):
     page = paginator.get_page(page_num)
     
     context = {
-        'page': page,
-        'items': page.object_list,
+        'page_obj': page,
         }
 
     return render(request, 'catalogapp/list.html', context=context)
@@ -38,12 +62,15 @@ def show_item(request, pk):
     item = Product.objects.get(pk=pk)
 
     context = {
-        'item': item,
+        'object': item,
         }
 
     return render(request, 'catalogapp/item.html', context=context)
 
 
+
+
+#REST classes
 class APIModel(APIView):
     model = models.Model
     serializer = serializers.ModelSerializer

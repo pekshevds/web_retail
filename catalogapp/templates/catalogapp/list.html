@@ -20,12 +20,12 @@
         
         
         
-        {% if page.has_previous %}
+        {% if page_obj.has_previous %}
         <li class="page-item">
-          <a class="page-link" href="{% url 'list-page' %}?page={{page.previous_page_number}}">Previous</a>
+          <a class="page-link" href="{% url 'list-page' %}?page={{page_obj.previous_page_number}}">Previous</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="{% url 'list-page' %}?page={{page.previous_page_number}}">{{page.previous_page_number}}</a>
+          <a class="page-link" href="{% url 'list-page' %}?page={{page_obj.previous_page_number}}">{{page_obj.previous_page_number}}</a>
         </li>
         {% else %}
         <li class="page-item disabled">
@@ -36,19 +36,19 @@
                             
         
         <li class="page-item active">
-          <a class="page-link" href="#">{{page.number}} <span class="sr-only">(current)</span></a>
+          <a class="page-link" href="#">{{page_obj.number}} <span class="sr-only">(current)</span></a>
         </li>
                 
         
         
-        {% if page.has_next %}
+        {% if page_obj.has_next %}
 
         <li class="page-item">
-          <a class="page-link" href="{% url 'list-page' %}?page={{page.next_page_number}}">{{page.next_page_number}}</a>
+          <a class="page-link" href="{% url 'list-page' %}?page={{page_obj.next_page_number}}">{{page_obj.next_page_number}}</a>
         </li>
 
         <li class="page-item">
-          <a class="page-link" href="{% url 'list-page' %}?page={{page.next_page_number}}">Next</a>
+          <a class="page-link" href="{% url 'list-page' %}?page={{page_obj.next_page_number}}">Next</a>
         </li>
         {% else %}
         <li class="page-item disabled">
@@ -65,7 +65,7 @@
 
     <div class="row">
 
-        {% for item in items %}
+        {% for item in object_list %}
         <div class="col-3">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{% static 'image.jpeg' %}" alt="Card image cap">                
@@ -95,12 +95,12 @@
           
           
           
-          {% if page.has_previous %}
+          {% if page_obj.has_previous %}
           <li class="page-item">
-            <a class="page-link" href="{% url 'list-page' %}?page={{page.previous_page_number}}">Previous</a>
+            <a class="page-link" href="{% url 'list-page' %}?page={{page_obj.previous_page_number}}">Previous</a>
           </li>
           <li class="page-item">
-            <a class="page-link" href="{% url 'list-page' %}?page={{page.previous_page_number}}">{{page.previous_page_number}}</a>
+            <a class="page-link" href="{% url 'list-page' %}?page={{page_obj.previous_page_number}}">{{page_obj.previous_page_number}}</a>
           </li>
           {% else %}
           <li class="page-item disabled">
@@ -111,19 +111,19 @@
                               
           
           <li class="page-item active">
-            <a class="page-link" href="#">{{page.number}} <span class="sr-only">(current)</span></a>
+            <a class="page-link" href="#">{{page_obj.number}} <span class="sr-only">(current)</span></a>
           </li>
                   
           
           
-          {% if page.has_next %}
+          {% if page_obj.has_next %}
 
           <li class="page-item">
-            <a class="page-link" href="{% url 'list-page' %}?page={{page.next_page_number}}">{{page.next_page_number}}</a>
+            <a class="page-link" href="{% url 'list-page' %}?page={{page_obj.next_page_number}}">{{page_obj.next_page_number}}</a>
           </li>
 
           <li class="page-item">
-            <a class="page-link" href="{% url 'list-page' %}?page={{page.next_page_number}}">Next</a>
+            <a class="page-link" href="{% url 'list-page' %}?page={{page_obj.next_page_number}}">Next</a>
           </li>
           {% else %}
           <li class="page-item disabled">
