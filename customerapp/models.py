@@ -1,9 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+import uuid
 
 # Create your models here.
 class Customer(models.Model):
 
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     user = models.OneToOneField(User, verbose_name='Пользователь', related_name='customer', on_delete=models.PROTECT)
     name = models.CharField(verbose_name='Наименование', max_length=100, blank=False, null=False, default='')
     code = models.CharField(verbose_name='Код', max_length=11, blank=True, null=True, default='')

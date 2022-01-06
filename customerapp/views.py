@@ -34,14 +34,31 @@ class LogoutView(views.LogoutView):
     template_name = 'registration/logged_out.html'
     next_page = 'login'
 
-class PasswordResetCompleteView(views.PasswordResetCompleteView):
-    template_name = 'registration/password_reset_complete.html'
+class PasswordChangeView(views.PasswordChangeView):    
+    template_name = 'registration/password_change_form.html'
+    success_url = 'profile'
 
-class PasswordResetConfirmView(views.PasswordResetConfirmView):
-    template_name = 'registration/password_reset_confirm.html'
+class PasswordChangeDoneView(views.PasswordChangeDoneView):
+    template_name = 'registration/password_change_done.html'
+
+class PasswordResetView(views.PasswordResetView):
+    template_name = 'registration/password_reset_form.html'
+    subject_template_name = 'registration/password_reset_subject.txt'
+    email_template_name = 'registration/password_reset_email.txt'
 
 class PasswordResetDoneView(views.PasswordResetDoneView):
     template_name = 'registration/password_reset_done.html'
+
+class PasswordResetConfirmView(views.PasswordResetConfirmView):
+    template_name = 'registration/password_reset_confirm.html'
+    success_url = 'profile'
+
+class PasswordResetCompleteView(views.PasswordResetCompleteView):
+    template_name = 'registration/password_reset_complete.html'
+
+
+
+
 
 
     

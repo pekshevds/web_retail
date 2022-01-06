@@ -9,7 +9,8 @@ from rest_framework import serializers
 from django.db import models
 
 from .models import Brand, Manufacturer, Country, Unit, Category, Product
-from .serializers import BrandSerializer, ManufacturerSerializer, CountrySerializer, UnitSerializer, CategorySerializer, ProductSerializer
+from .serializers import BrandSerializer, ManufacturerSerializer, CountrySerializer, \
+    UnitSerializer, CategorySerializer, ProductSerializer
 
 from django.core.paginator import Paginator
 
