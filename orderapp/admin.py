@@ -12,9 +12,9 @@ class ItemOrderInLine(admin.TabularInline):
     
 
 class AdminOrder(admin.ModelAdmin):
-
-    list_display = ('representation', 'order_date', 'order_number', 'customer', 'total',)
-    list_display_links = ('representation',)
+    
+    list_display = ('__str__', 'order_date', 'order_number', 'customer', 'total',)    
+    list_display_links = ('__str__',)
     
     fields = ('order_number', 'order_date', 'customer', 'total',)
     readonly_fields = ('order_date','order_number', 'total',)

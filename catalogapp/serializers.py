@@ -1,4 +1,4 @@
-from rest_framework import fields, serializers
+from rest_framework import serializers
 from .models import Brand, Country, Unit, Manufacturer, Category, Product
 
 class BrandSerializer(serializers.ModelSerializer):

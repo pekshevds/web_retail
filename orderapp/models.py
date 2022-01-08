@@ -17,12 +17,9 @@ class Order(models.Model):
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT, verbose_name='Заказчик')
     total = models.DecimalField(verbose_name='Всего', max_digits=15, decimal_places=2, default=0)
 
-    @property
-    def representation(self):
-        return f'{self.order_number} от {self.order_date}'
-
+    
     def __str__(self):
-        return self.representation
+        return f'{self.order_number} от {self.order_date}'
 
     def save(self, *args, **kwargs):
 
